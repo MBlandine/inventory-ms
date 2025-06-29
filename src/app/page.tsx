@@ -1,95 +1,96 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+import React from 'react'
+// import '../styles.css/Orders.css';
+// import "../iconMap";
+import { CiMenuKebab } from "react-icons/ci";
+import { IoMdSearch } from "react-icons/io";
 
-export default function Home() {
+
+
+const orders = [
+  {
+    id: '#3201',
+    date: 'December 10, 2020',
+    customer: 'Ryan Ford',
+    paid: 'Partial',
+    status: 'Shipped',
+    items: '2000',
+    total: '$1,200.00',
+  },
+  {
+    id: '#3202',
+    date: 'December 11, 2020',
+    customer: 'Jane Doe',
+    paid: 'Paid',
+    status: 'Processing',
+    items: '3000',
+    total: '$980.00',
+  },
+  {
+    id: '#3203',
+    date: 'December 12, 2020',
+    customer: 'John Smith',
+    paid: 'Unpaid',
+    status: 'Cancelled',
+    items: '1000',
+    total: '$100.00',
+  },
+];
+
+
+
+const Orders = () => {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <div className='Orders'>
+      <div className='Orderstitle'>
+        <div>
+          <h2>Dashboard / Orders</h2>
+          <h3>Orders</h3>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className='icon'>New Order</div>
+      </div>
+
+      <div className='orderspage'>
+        <div className='search'>
+          <IoMdSearch />
+          <input type='search' placeholder='Start typing to search for orders' />
+        </div>
+
+        <div className='table'>
+          <table>
+            <thead>
+              <tr>
+                <th><input type='checkbox' /></th>
+                <th>Number</th>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Paid</th>
+                <th>Status</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th><CiMenuKebab /></th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order, index) => (
+                <tr key={index}>
+                  <td><input type='checkbox' /></td>
+                  <td>{order.id}</td>
+                  <td>{order.date}</td>
+                  <td>{order.customer}</td>
+                  <td>{order.paid}</td>
+                  <td>{order.status}</td>
+                  <td>{order.items}</td>
+                  <td>{order.total}</td>
+                  <td><CiMenuKebab /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default Orders

@@ -1,7 +1,6 @@
 'use client';
 
-import DashboardLayout from "./"
-// import DashboardNav from "../components/dashboard/DashboardNav";
+import DashboardLayout from "../components/layout/DashboardLayout";
 import DashboardCards from "../components/dashboard/DashboardCards";
 import MessagesSection from "../components/dashboard/MessagesSection";
 
