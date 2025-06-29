@@ -1,6 +1,4 @@
 import React from 'react'
-// import '../styles.css/Customers.css'
-// import { products } from '../componets/Shop'
 import { CiMenuKebab } from "react-icons/ci";
 import { IoMdSearch } from "react-icons/io";
 
